@@ -24,7 +24,7 @@ public class MyServlet extends HttpServlet {
             Jira jiraInterface = new Jira();
             boolean isUpdated =jiraInterface.updateJira(json);
             System.out.println("json "+json);
-            pw.print("User Feedback updated successfully");
+            
             if(isUpdated){
             	pw.print("User Feedback updated successfully");
             }
