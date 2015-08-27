@@ -29,7 +29,7 @@ public class EmailService {
 
 public void test(){String to = "gdmmadhan@yahoo.in";//change accordingly  
 		String from = "ravi.paramasivam@gmail.com";//change accordingly  
-		String host = "my-java-app.jigarthanda.cfapps.io";//or IP address  
+		String host = "smtp.mail.yahoo.com";//or IP address  
 
 		//Get the session object  
 		Properties properties = System.getProperties();  
