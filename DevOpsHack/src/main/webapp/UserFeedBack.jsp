@@ -17,8 +17,7 @@
  function updateFeedback(){
 	
 	 var data={"feedBackTitle":$("#feedBackTitle").val(),"feedBackDesc":$("#feedBackDesc").val(),"feedBackGroup":$("#feedBackGroup").val()};
-	 alert("---->"  +JSON.stringify(data));
-	 $.ajax({url: "/DevOpsHack/index.jsp?jsonStr="+JSON.stringify(data), success: function(result){
+	 $.ajax({url: "/index.jsp?jsonStr="+JSON.stringify(data), success: function(result){
          alert(result);
      }});
 } 
