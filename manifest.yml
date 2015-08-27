@@ -1,0 +1,6 @@
+applications:
+- name: DEVOPES
+  memory: 512M
+  host: my-java-app
+  domain: jigarthanda.cfapps.io
+  path: DevOpsHack/target/DevOpsHack.war
