@@ -10,4 +10,4 @@ deploy:
   organization: Jigarthanda
   space: development1
   on:
-    repo: RaviParamasivan/HACKATHON_REP
+    repo: RaviParamasivan/Hackthon
