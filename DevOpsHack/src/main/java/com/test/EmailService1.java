@@ -23,7 +23,7 @@ public class EmailService1 {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
-        props.put("mail.debug", "true");
+        props.put("mail.debug", "false");
 
         Session session;
         session = Session.getDefaultInstance(props, new Authenticator() {
