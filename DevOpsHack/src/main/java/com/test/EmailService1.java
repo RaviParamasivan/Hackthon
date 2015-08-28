@@ -8,8 +8,8 @@ import java.util.Properties;
 public class EmailService1 {
 
     private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
-    private static final String SMTP_AUTH_USER = "jigarthanda@email-proxy.run.pivotal.io";
-    private static final String SMTP_AUTH_PWD  = "nmk1EfU0iQ";
+    private static final String SMTP_AUTH_USER = "7bqGkrFzDt";
+    private static final String SMTP_AUTH_PWD  = "GACREvc4E1EM0227";
 
     public static void main(String[] args) throws Exception{
        new EmailService1().test();
