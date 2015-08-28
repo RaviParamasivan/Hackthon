@@ -2,15 +2,21 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
+
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>contorler</servlet-name>
     <servlet-class>com.test.hackathon.controler.MyServlet</servlet-class>
   </servlet>
-  
+  <servlet-mapping>
+    <servlet-name>contorler</servlet-name>
+    <url-pattern>/index.jsp</url-pattern>    
+  </servlet-mapping>  
     <servlet-mapping>
     <servlet-name>contorler</servlet-name>
-    <url-pattern>/UserFeedBack.jsp</url-pattern>    
+    <url-pattern>/product</url-pattern>    
   </servlet-mapping>
+   
+
 </web-app>
