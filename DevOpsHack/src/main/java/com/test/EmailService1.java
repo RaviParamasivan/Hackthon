@@ -1,42 +1,54 @@
 package com.test;
 
-import javax.mail.*;
-import javax.mail.internet.*;
 import java.util.Properties;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class EmailService1 {
-    private static final String SMTP_HOST_NAME = "smtp.gmail.com";
-    private static final int SMTP_HOST_PORT = 587;//465,587,25
-    private static final String SMTP_AUTH_USER = "1234567test890@gmail.com";
-    private static final String SMTP_AUTH_PWD  = "testtest1";
+    
+    public static String sendEmail(String toEmail, String subject, String body) {
+
+        final String userName = "1234567test890@gmail.com";
+        final String passWord = "testtest1";
+        String fromEmail = "1234567test890@gmail.com";
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.debug", "true");
+
+        Session session;
+        session = Session.getDefaultInstance(props, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(userName, passWord);
+            }
+        });
+
+        session.setDebug(false);
+        MimeMessage message = new MimeMessage(session);
+        try {
+            message.setFrom(new InternetAddress(fromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+            message.setSubject(subject);
+            message.setText(body);
+            Transport.send(message);
+            return "success";
+        } catch (MessagingException e) {
+            System.out.println(e.getMessage());
+            return "failure";
+        }
+    }
 
     public void test() throws Exception{
-	
-    	
-        Properties props = new Properties();
-
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.host", SMTP_HOST_NAME);
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        // props.put("mail.smtps.quitwait", "false");
-
-        Session mailSession = Session.getDefaultInstance(props);
-        mailSession.setDebug(true);
-        Transport transport = mailSession.getTransport();
-
-        MimeMessage message = new MimeMessage(mailSession);
-        message.setSubject("Testing SMTP-SSL");
-        message.setContent("This is a test", "text/plain");
-
-        message.addRecipient(Message.RecipientType.TO,
-             new InternetAddress("gdmmadhan@yahoo.in"));
-
-        transport.connect
-          (SMTP_HOST_NAME, SMTP_HOST_PORT, SMTP_AUTH_USER, SMTP_AUTH_PWD);
-
-        transport.sendMessage(message,
-            message.getRecipients(Message.RecipientType.TO));
-        transport.close();
+    	String mailResult = sendEmail("gdmmadhan@yahoo.in", "subject", " body content");    	
     }
 }
