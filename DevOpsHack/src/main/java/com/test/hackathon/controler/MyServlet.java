@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.test.EmailService;
+import com.test.EmailService1;
 import com.test.hackathon.jira.Jira;
 
 public class MyServlet extends HttpServlet {
@@ -19,7 +19,7 @@ public class MyServlet extends HttpServlet {
     	theResponse.setContentType("text/html");
     	try{
             JSONObject json = new JSONObject(theRequest.getParameter("jsonStr"));
-            EmailService email= new EmailService();
+           EmailService1 email= new EmailService1();
             email.test();
             Jira jiraInterface = new Jira();
             boolean isUpdated =jiraInterface.updateJira(json);
