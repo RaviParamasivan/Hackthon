@@ -5,10 +5,10 @@ import javax.mail.internet.*;
 import java.util.Properties;
 
 public class EmailService1 {
-    private static final String SMTP_HOST_NAME = "smtp.mail.yahoo.com";
+    private static final String SMTP_HOST_NAME = "smtp.gmail.com";
     private static final int SMTP_HOST_PORT = 587;//465,587,25
-    private static final String SMTP_AUTH_USER = "gdmmadhan@yahoo.com";
-    private static final String SMTP_AUTH_PWD  = "bluemount84";
+    private static final String SMTP_AUTH_USER = "1234567test890@gmail.com";
+    private static final String SMTP_AUTH_PWD  = "testtest1";
 
     public void test() throws Exception{
 	
