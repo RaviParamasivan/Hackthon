@@ -32,7 +32,7 @@ public class EmailService1 {
         props.put("mail.smtp.host", "smtp.mail.yahoo.com");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "465");
         props.put("mail.debug", "true");
         Session session;
         session = Session.getDefaultInstance(props, new Authenticator() {
