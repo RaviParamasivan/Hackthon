@@ -25,11 +25,11 @@ public class EmailService1 {
         props.put("mail.smtp.port", "465");
         props.put("mail.debug", "false");*/
         
-        final String userName = "gdmmadhan@yahoo.in";
-        final String passWord = "bluemount84";
-        String fromEmail = "gdmmadhan@yahoo.in";
+        final String userName = "madhan@itechgenie.com";
+        final String passWord = "Verizon@123";
+        String fromEmail = "madhan@itechgenie.com";
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.mail.yahoo.com");
+        props.put("mail.smtp.host", "ns11-999.999servers.com");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
