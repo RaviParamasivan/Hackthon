@@ -29,7 +29,7 @@ Feedback Description  : <input type="text" id ="feedBackGroup"></br>
 	
 	 var data={"feedBackTitle":$("#feedBackTitle").val(),"feedBackDesc":$("#feedBackDesc").val(),"feedBackGroup":$("#feedBackGroup").val()};
 	 
-	 $.ajax({url: "/DevOpsHack/index.jsp?jsonStr="+JSON.stringify(data), success: function(result){
+	 $.ajax({url: "/index.jsp?jsonStr="+JSON.stringify(data), success: function(result){
          alert(result);
      }});
 } 
