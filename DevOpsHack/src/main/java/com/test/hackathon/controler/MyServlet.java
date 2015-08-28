@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import com.test.EmailService1;
 import com.test.hackathon.jira.Jira;
+import com.test.hackathon.util.Healper;
 
 public class MyServlet extends HttpServlet {
     public void doGet(HttpServletRequest theRequest, HttpServletResponse theResponse) throws IOException
@@ -19,12 +20,14 @@ public class MyServlet extends HttpServlet {
     	theResponse.setContentType("text/html");
     	try{
             JSONObject json = new JSONObject(theRequest.getParameter("jsonStr"));
-           EmailService1 email= new EmailService1();
+            Healper helper = new Healper();
+            boolean isValid= helper.isValid(json);
+            EmailService1 email= new EmailService1();
             email.test();
             Jira jiraInterface = new Jira();
             boolean isUpdated =jiraInterface.updateJira(json);
             System.out.println("json "+json);
-            
+            pw.print("User Feedback updated successfully");
             if(isUpdated){
             	pw.print("User Feedback updated successfully");
             }
