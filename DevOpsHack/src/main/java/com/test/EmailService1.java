@@ -30,7 +30,7 @@ public class EmailService1 {
         message.setContent("This is a test", "text/plain");
 
         message.addRecipient(Message.RecipientType.TO,
-             new InternetAddress("ravi.paramasivam.m@gmail.com"));
+             new InternetAddress("gdmmadhan@yahoo.in"));
 
         transport.connect
           (SMTP_HOST_NAME, SMTP_HOST_PORT, SMTP_AUTH_USER, SMTP_AUTH_PWD);
