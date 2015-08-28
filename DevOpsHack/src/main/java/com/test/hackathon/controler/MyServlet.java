@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 import com.test.EmailService1;
 import com.test.hackathon.jira.Jira;
-import com.test.hackathon.util.Healper;
+import com.test.hackathon.Healper;
 
 public class MyServlet extends HttpServlet {
     public void doGet(HttpServletRequest theRequest, HttpServletResponse theResponse) throws IOException
