@@ -10,10 +10,8 @@ public class EmailService1 {
     private static final String SMTP_AUTH_USER = "gdmmadhan@yahoo.com";
     private static final String SMTP_AUTH_PWD  = "bluemount84";
 
- 
-
     public void test() throws Exception{
-    	
+	
     	
         Properties props = new Properties();
 
