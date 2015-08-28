@@ -8,16 +8,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
-<input type="text" id ="feedBackTitle">
-<input type="text" id ="feedBackDesc">
-<input type="text" id ="feedBackGroup">
-<button onClick="updateFeedback()" name ="xxxx"> </button>
+Feedback Title : <input type="text" id ="feedBackTitle"></br>
+Feedback Category : <select id ="feedBackDesc"><option value="">Select ..</option><option value="Billing">Billing</option><option value="Ordering">Ordering</option><option value="Repair">Repair</option></select></br>
+Feedback Description  : <input type="text" id ="feedBackGroup"></br>
+<button onClick="updateFeedback()" name ="Submit">Submit</button>
 </body>
 <script>
  function updateFeedback(){
+	 
+	 if($("#feedBackTitle").val() != ""){
+		 alert("Please enter the title");
+		 return false ;
+	 }else 	 if($("#feedBackTitle").val() != ""){
+		 alert("Please select the category");
+		 return false ;
+	 }else 	 if($("#feedBackTitle").val() != ""){
+		 alert("Please enter the Description");
+		 return false ;
+	 }	 
 	
 	 var data={"feedBackTitle":$("#feedBackTitle").val(),"feedBackDesc":$("#feedBackDesc").val(),"feedBackGroup":$("#feedBackGroup").val()};
-	 $.ajax({url: "/index.jsp?jsonStr="+JSON.stringify(data), success: function(result){
+	 
+	 $.ajax({url: "/DevOpsHack/index.jsp?jsonStr="+JSON.stringify(data), success: function(result){
          alert(result);
      }});
 } 
