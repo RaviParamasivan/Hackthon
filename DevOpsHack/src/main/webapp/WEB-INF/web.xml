@@ -7,10 +7,10 @@
   <servlet>
     <servlet-name>contorler</servlet-name>
     <servlet-class>com.test.hackathon.controler.MyServlet</servlet-class>
-
   </servlet>
+  
     <servlet-mapping>
     <servlet-name>contorler</servlet-name>
-    <url-pattern>/*</url-pattern>    
+    <url-pattern>/UserFeedBack.jsp</url-pattern>    
   </servlet-mapping>
 </web-app>
