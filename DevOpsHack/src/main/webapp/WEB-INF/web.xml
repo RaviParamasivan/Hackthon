@@ -16,11 +16,11 @@
   
     <servlet-mapping>
     <servlet-name>contorler</servlet-name>
-    <url-pattern>/Feedback.jsp</url-pattern>    
+    <url-pattern>*.jsp</url-pattern>    
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>contorler</servlet-name>
-    <url-pattern>/products/*</url-pattern>
+    <url-pattern>*</url-pattern>
   </servlet-mapping>
 
 </web-app>
