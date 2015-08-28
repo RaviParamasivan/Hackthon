@@ -16,7 +16,7 @@ public class EmailService {
     Properties props = System.getProperties();
     Session l_session = null;
 
-    public void BSendMail() {
+    public void test() {
         host = "smtp.mail.yahoo.com";
         port = "587";
         emailid = "rsnvinesh@yahoo.in";
