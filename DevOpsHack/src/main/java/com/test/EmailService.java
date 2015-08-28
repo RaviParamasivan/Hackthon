@@ -4,52 +4,79 @@ import java.util.Properties;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-
-
-
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.SendFailedException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
-import org.junit.Test;
 
 public class EmailService {
 
+    String host, port, emailid,username, password;
+    Properties props = System.getProperties();
+    Session l_session = null;
 
-public void test(){String to = "gdmmadhan@yahoo.in";//change accordingly  
-		String from = "ravi.paramasivam@gmail.com";//change accordingly  
-		String host = "smtp.mail.yahoo.com";//or IP address  
+    public void BSendMail() {
+        host = "smtp.mail.yahoo.com";
+        port = "587";
+        emailid = "rsnvinesh@yahoo.in";
+        username = "rsnvinesh";
+        password = "devops123";
 
-		//Get the session object  
-		Properties properties = System.getProperties();  
-		properties.setProperty("mail.smtp.host", host);  
-		Session session = Session.getDefaultInstance(properties);  
+        emailSettings();
+        createSession();
+        sendMessage(emailid,"ravi.paramasivam.m@gmail.com","Test","test Mail");
+    }
 
-		//compose the message  
-		try{  
-		MimeMessage message = new MimeMessage(session);  
-		message.setFrom(new InternetAddress(from));  
-		message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));  
-		message.setSubject("Ping");  
-		message.setText("Hello, this is example of sending email  ");  
+    public void emailSettings() {
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.debug", "false");
+        props.put("mail.smtp.port", port);
+//        props.put("mail.smtp.socketFactory.port", port);
+//        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+//        props.put("mail.smtp.socketFactory.fallback", "false");
 
-		// Send message  
-		Transport.send(message);  
-		System.out.println("message sent successfully....");  
+    }
 
-		}catch (MessagingException mex) {mex.printStackTrace();}  
-		
-		}
-    
+    public void createSession() {
+
+        l_session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        l_session.setDebug(true); // Enable the debug mode
+
+    }
+
+    public boolean sendMessage(String emailFromUser, String toEmail, String subject, String msg) {
+        //System.out.println("Inside sendMessage 2 :: >> ");
+        try {
+            //System.out.println("Sending Message *********************************** ");
+            MimeMessage message = new MimeMessage(l_session);
+            emailid = emailFromUser;
+            //System.out.println("mail id in property ============= >>>>>>>>>>>>>> " + emailid);
+            //message.setFrom(new InternetAddress(emailid));
+            message.setFrom(new InternetAddress(this.emailid));
+
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+            message.addRecipient(Message.RecipientType.BCC, new InternetAddress(emailFromUser));
+            message.setSubject(subject);
+            message.setContent(msg, "text/html");
+
+            //message.setText(msg);
+            Transport.send(message);
+            System.out.println("Message Sent");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }//end catch block
+        return true;
+    }
+
 }
+ 
