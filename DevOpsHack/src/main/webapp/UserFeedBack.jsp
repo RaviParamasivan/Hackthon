@@ -16,13 +16,13 @@ Feedback Description  : <input type="text" id ="feedBackGroup"></br>
 <script>
  function updateFeedback(){
 	 
-	 if($("#feedBackTitle").val() != ""){
+	 if($("#feedBackTitle").val() == ""){
 		 alert("Please enter the title");
 		 return false ;
-	 }else 	 if($("#feedBackTitle").val() != ""){
+	 }else 	 if($("#feedBackTitle").val() == ""){
 		 alert("Please select the category");
 		 return false ;
-	 }else 	 if($("#feedBackTitle").val() != ""){
+	 }else 	 if($("#feedBackTitle").val() == ""){
 		 alert("Please enter the Description");
 		 return false ;
 	 }	 
@@ -33,6 +33,5 @@ Feedback Description  : <input type="text" id ="feedBackGroup"></br>
          alert(result);
      }});
 } 
-
 </script>
 </html>
