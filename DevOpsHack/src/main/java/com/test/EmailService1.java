@@ -33,10 +33,10 @@ public class EmailService1 {
         Multipart multipart = new MimeMultipart("alternative");
 
         BodyPart part1 = new MimeBodyPart();
-        part1.setText("This is multipart mail and u read part1……");
+        part1.setText("This is multipart mail and u read part1 - Text……");
 
         BodyPart part2 = new MimeBodyPart();
-        part2.setContent("<b>This is multipart mail and u read part2……</b>", "text/html");
+        part2.setContent("<b>This is multipart mail and u read part2……- Content</b>", "text/html");
 
         multipart.addBodyPart(part1);
         multipart.addBodyPart(part2);
